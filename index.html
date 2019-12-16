@@ -65,16 +65,16 @@
         <p class="contents">Below are example queries you can try:</p>
         <ul>
             <li><b>SELECT</b> * <b>FROM</b> Cats</li>
-            <li><b>SELECT</b> Name, Alive <b>FROM</b> Cats</li>
+            <li><b>SELECT</b> Name, Color <b>FROM</b> Cats</li>
             <li><b>SELECT</b> * <b>FROM</b> Cats <b>WHERE</b> Color = "Tabby"</li>
             <li><b>SELECT</b> * <b>FROM</b> Cats <b>WHERE</b> Birth &gt; 2000</li>
             <li><b>SELECT</b> * <b>FROM</b> Cats <b>WHERE</b> Color <b>IS NULL</b></li>
             <br>
-            <li><b>INSERT INTO</b> Cats <b>VALUES</b> ("Paddles", 2016, FALSE, "Ginger")</li>
+            <li><b>INSERT INTO</b> Cats <b>VALUES</b> ("Paddles", 2016, 0, "Ginger")</li>
             <li><b>INSERT INTO</b> Cats (Name, Birth) <b>VALUES</b> ("Schrödinger", 1935)</li>
             <br>
-            <li><b>UPDATE</b> Cats <b>SET</b> Alive = FALSE <b>WHERE</b> Birth &lt; 1977</li>
-            <li><b>DELETE FROM</b> Cats <b>WHERE</b> Alive != TRUE</li>
+            <li><b>UPDATE</b> Cats <b>SET</b> Alive = 0 <b>WHERE</b> Birth &lt; 1977</li>
+            <li><b>DELETE FROM</b> Cats <b>WHERE</b> Alive != 1</li>
         </ul>
     </div>
 
@@ -97,10 +97,10 @@
     <div class="card container" id="about">
         <header>About LearnSQL</header>
         <p class="contents">LearnSQL is a client-side database system for people interested in SQL to get their head around the idea of tables and the syntax commonly used with relational databases.</p>
-        <p class="contents">It uses a subset of SQL which keeps this simple for newbies and saves the duration of development for me. Also, heads-up: once you refresh, the changes you've made will be lost.</p>
+        <p class="contents">This website uses <a href="https://github.com/kripken/sql.js/">sql.js</a>, a port of <a href="https://sqlite.org/">SQLite</a> to WebAssembly for the database backend. Also, heads-up: once you refresh, the changes you've made will be lost.</p>
         <!-- Will this give me points in INFO151? -->
         <p class="contents" style="text-align: center; font-size: 12px; font-family: 'Courier Prime', monospace;">Made by <a href="https://thegreatrazz.nz/" target="_blank">Raresh Nistor</a> &middot;
-            <a href="#github" target="_blank">Source Code</a>
+            <a href="https://github.com/thegreatrazz/learnsql" target="_blank">GitHub</a>
         </p>
 
     </div>
