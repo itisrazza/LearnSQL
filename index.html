@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=3, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>LearnSQL</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Courier+Prime:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script src="sql-wasm.js"></script>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <header class="container">
+        <h1>LearnSQL</h1>
+        <p>by <a href="https://thegreatrazz.nz" target="_blank">Raresh Nistor</a></p>
+    </header>
+
+    <form id="query-form" class="card container">
+        <input type="text" name="query" id="query" required placeholder="Enter SQL query here">
+        <button type="submit"><img src="img/send.svg" alt="Submit Query"></button>
+    </form>
+
+    <noscript id="jscript-warning" class="card container">
+        <header>JavaScript Warning</header>
+        <p class="contents">JavaScript is either disabled or hasn't loaded yet. LearnSQL runs entirely client-side and
+            needs it to run.</p>
+        <p class="contents">If you are unsure about running JavaScript and want to audit the code first, you can
+            download this project from GitHub.</p>
+    </noscript>
+
+    <div class="card container" id="query-error">
+        <header>Query Error</header>
+        <p class="contents"></p>
+    </div>
+
+    <div id="query-response" class="card container">
+        <header>Query Response</header>
+        <div style="overflow-x: auto;">
+            <table id="query-response-table">
+                <thead>
+                    <tr></tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card container" id="tutorial">
+        <header>Tutorials</header>
+        <p class="contents">Tutorials are coming down the pipeline as I write them. In the meantime, you can investigate
+            other sources to get started with learning SQL.</p>
+        <p class="contents">
+            <a href="https://www.w3schools.com/sql/default.asp" target="_blank">W3Schools' SQL Tutorial</a>
+        </p>
+    </div>
+
+    <div class="card container" id="reference">
+        <header>Reference</header>
+        <p class="contents">Below are example queries you can try:</p>
+        <ul>
+            <li><b>SELECT</b> * <b>FROM</b> Cats</li>
+            <li><b>SELECT</b> Name, Alive <b>FROM</b> Cats</li>
+            <li><b>SELECT</b> * <b>FROM</b> Cats <b>WHERE</b> Color = "Tabby"</li>
+            <li><b>SELECT</b> * <b>FROM</b> Cats <b>WHERE</b> Birth &gt; 2000</li>
+            <li><b>SELECT</b> * <b>FROM</b> Cats <b>WHERE</b> Color <b>IS NULL</b></li>
+            <br>
+            <li><b>INSERT INTO</b> Cats <b>VALUES</b> ("Paddles", 2016, FALSE, "Ginger")</li>
+            <li><b>INSERT INTO</b> Cats (Name, Birth) <b>VALUES</b> ("Schrödinger", 1935)</li>
+            <br>
+            <li><b>UPDATE</b> Cats <b>SET</b> Alive = FALSE <b>WHERE</b> Birth &lt; 1977</li>
+            <li><b>DELETE FROM</b> Cats <b>WHERE</b> Alive != TRUE</li>
+        </ul>
+    </div>
+
+    <div id="database-view" class="card container">
+        <header>Database View</header>
+        <select name="database" id="database-view-selector">
+            <option value="Cats">Cats</option>
+        </select>
+        <div style="overflow-x: auto;">
+            <table id="database-view-table">
+                <thead>
+                    <tr></tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card container" id="about">
+        <header>About LearnSQL</header>
+        <p class="contents">LearnSQL is a client-side database system for people interested in SQL to get their head around the idea of tables and the syntax commonly used with relational databases.</p>
+        <p class="contents">It uses a subset of SQL which keeps this simple for newbies and saves the duration of development for me. Also, heads-up: once you refresh, the changes you've made will be lost.</p>
+        <!-- Will this give me points in INFO151? -->
+        <p class="contents" style="text-align: center; font-size: 12px; font-family: 'Courier Prime', monospace;">Made by <a href="https://thegreatrazz.nz/" target="_blank">Raresh Nistor</a> &middot;
+            <a href="#github" target="_blank">Source Code</a>
+        </p>
+
+    </div>
+</body>
+
+</html>

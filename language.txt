@@ -1,0 +1,15 @@
+
+# select everything from table
+SELECT * FROM [table]
+
+# select something from table
+SELECT [column [',' column]...] FROM [table]
+
+# select things from table where
+
+
+#
+table : identifier
+
+identifier : /[A-Za-z0-9_]/
+
