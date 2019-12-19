@@ -1,18 +1,48 @@
 @import url('https://rsms.me/inter/inter.css');
 
 :root {
-    font-family: "Inter var", sans-serif;
+    --font-main: "Inter var", sans-serif;
+    --font-mono: "Courier Prime", monospace;
+    --font-header: var(--font-mono);
+
+    --color-background: #FAFAFA;
+    --color-foreground: #212121;
+    --color-page-bg-out: #006064;
+    --color-page-bg-in: #00BCD4;
+    --color-card-background: var(--color-background);
+    --color-card-header: #e0e0e0;
+    --color-accent: #FF5722;
+    --color-link: var(--color-accent);
+    --color-table-head: #eeeeee;
+    --color-table-border: #e0e0e0;
+    
+    --shadow: 0 8px 32px rgba(0, 0, 0, .5);
+
+    font-family: var(--font-main);
     font-size: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: #212121;
+        --color-foreground: #fafafa;
+        --color-page-bg-out: var(--color-background);
+        --color-page-bg-in: #006064;
+        --color-card-header: #424242;
+        --color-table-head: #616161;
+        --color-table-border: #424242;
+    }
 }
 
 body {
     margin: 0;
-    background-image: url(img/dark-triangles.png);
-    background-size: 200px;
+    background-color: var(--color-page-bg-out);
+    background-image: radial-gradient(at center, var(--color-page-bg-in), var(--color-page-bg-out));
+    background-attachment: fixed;
 }
 
 a {
-    color: #FF5722;
+    color: var(--color-link);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,19 +60,19 @@ table {
 }
 
 table thead {
-    background: #eeeeee;
+    background: var(--color-table-head);
 }
 
 table th {
     text-align: left;
-    border: 1px solid lightgray;
+    border: 1px solid var(--color-table-border);
     border-top: none;
     border-bottom: none;
     padding: 4px 8px;
 }
 
 table td {
-    border: 1px solid lightgray;
+    border: 1px solid var(--color-table-border);
     border-top: none;
     border-bottom: none;
     padding: 4px 8px;
@@ -74,9 +104,9 @@ table td:last-child {
 .card {
     display: block;
     margin-top: 1em;
-    background: #fafafa;
-    color: #212121;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, .5);
+    background: var(--color-card-background);
+    color: var(--color-foreground);
+    box-shadow: var(--shadow);
     border-radius: 8px;
     overflow: hidden;
 }
@@ -91,7 +121,7 @@ table td:last-child {
     font-size: 12px;
     /* font-weight: bold; */
     /* text-transform: uppercase; */
-    background: #e0e0e0;
+    background: var(--color-card-header);
 }
 
 .card .contents {
@@ -113,13 +143,28 @@ body > header {
     display: block;
     text-align: center;
     color: #fafafa;
-    padding: 10vh 0;
-    font-weight: 300;
+    padding: 5vh 0;
+    font-weight: 500;
+    text-shadow: var(--shadow);
+}
+
+body > header a {
+    color: unset;
 }
 
 body > header h1 {
-    font-size: 5em;
+    /* font-size: 5em; */
     margin-bottom: 0;
+}
+
+@media only screen and (min-width: 640px) {
+    body > header {
+        padding: 10vh 0;
+    }
+
+    body > header h1 {
+        font-size: 5em;
+    }
 }
 
 /* query form */
@@ -142,6 +187,7 @@ body > header h1 {
     font-family: "Courier Prime", monospace;
     padding: 8px 16px;
     min-width: 0;
+    color: unset;
 }
 
 #query-form input:invalid {
@@ -197,9 +243,11 @@ body > header h1 {
     width: 100%;
     font: unset;
     border: none;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid var(--color-table-border);
     padding: 8px 16px;
     margin: 0;
+    color: unset;
+    background: var(--color-card-header);
 }
 
 /*  */
